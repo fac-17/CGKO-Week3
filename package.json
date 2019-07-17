@@ -1,0 +1,31 @@
+{
+  "name": "cgko-week3",
+  "version": "1.0.0",
+  "description": "Zoopla and Police API Project",
+  "main": "app.js",
+  "scripts": {
+    "test": "node tests.js | tap-spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fac-17/CGKO-Week3.git"
+  },
+  "keywords": [
+    "zoopla",
+    "police",
+    "api"
+  ],
+  "author": "Christine Tony Franchie and Gigi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fac-17/CGKO-Week3/issues"
+  },
+  "homepage": "https://github.com/fac-17/CGKO-Week3#readme",
+  "devDependencies": {
+    "tap-spec": "^5.0.0",
+    "tape": "^4.11.0"
+  },
+  "dependencies": {
+    "env2": "^2.2.2"
+  }
+}
