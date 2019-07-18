@@ -26,3 +26,38 @@ test("Testing that the output has no empty spaces inside the string", function(t
   t.equal(actual, expected, "Should return without spaces");
   t.end();
 });
+
+test("Testing GOV.UK postcode validator", function(t) {
+  const actual = functions.postcodeValidator("HP8 2JT");
+  const expected = true;
+  t.equal(actual, expected, "Should validate postcode by UK GOV standards");
+  t.end();
+});
+
+test("Testing GOV.UK postcode validator", function(t) {
+  const actual = functions.postcodeValidator("XC6-2NQ");
+  const expected = false;
+  t.equal(actual, expected, "Should validate postcode by UK GOV standards");
+  t.end();
+});
+
+test("Testing GOV.UK postcode validator", function(t) {
+  const actual = functions.postcodeValidator("jeoihjfire");
+  const expected = false;
+  t.equal(actual, expected, "Should validate postcode by UK GOV standards");
+  t.end();
+});
+
+test("Testing GOV.UK postcode validator", function(t) {
+  const actual = functions.postcodeValidator("NR4 7TJ");
+  const expected = true;
+  t.equal(actual, expected, "Should validate postcode by UK GOV standards");
+  t.end();
+});
+
+test("Testing GOV.UK postcode validator", function(t) {
+  const actual = functions.postcodeValidator("AA6 2KO.");
+  const expected = false;
+  t.equal(actual, expected, "Should validate postcode by UK GOV standards");
+  t.end();
+});
