@@ -36,6 +36,8 @@ let policeAPI = function(la, lo) {
       results.appendChild(resultsSection);
       let crimeNum = document.querySelector(".numberOfCrimes");
       crimeNum.textContent += ` ${totalCrimes}`;
+
+      
     }
   };
   xhr.open("GET", URL, true);
