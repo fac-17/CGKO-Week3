@@ -49,7 +49,7 @@ A young family expecting a baby is looking for a place in a safe area, and would
 If the call has been successfull, we call the POLICE! :smile:   
 ![gif of call](https://media.giphy.com/media/qivpB3X5IU5yg/giphy.gif)
 
-The result of the Geolocation API triggers a callback call to the Police UK API with the exact coordinates (as the Police API does not support postcodes), which in itself returns data about reported crimes for a specific month of the year. Through a number of tested function, we extract the crimes by category and display their count to the user to help them make an informed decision before bying a house in that area.
+The result of the Geolocation API triggers a callback call to the Police UK API with the exact coordinates (as the Police API does not support postcodes), which in itself returns data about reported crimes for a specific month of the year. Through a number of tested functions, we extract the crimes by category and display their count to the user to help them make an informed decision before bying a house in that area.
 
 ## APIs 
 POLICE UK - https://data.police.uk/docs/
@@ -71,7 +71,7 @@ Postcode & Geolocation API for the UK - http://postcodes.io/
 ```
 
 ## APIs we looked into but truly disappointed us:
-Zoopla appears to have been abandoned, while leaving all documentation and endpoints active.
+Zoopla appears to have been abandoned, while leaving all of its documentation and endpoints active.
 Geocode was offering a free trial but the pitifall is that it asks for your credit card and can actually become expensive.  
 ![sad face](https://media.giphy.com/media/J9h3vpYVuUi52/giphy.gif)
 
