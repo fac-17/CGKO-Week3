@@ -1,10 +1,10 @@
 # [Crime checker](https://fac-17.github.io/CGKO-Week3/) :oncoming_police_car:
 
-Team: 
-[Gigi](github.com/gminova)
-[Tony](github.com/tonylomax)
-[Francesca](github.com/frannyfra)
-[Christine](github.com/xIrusux)
+## Team   
+[Gigi](github.com/gminova)  
+[Tony](github.com/tonylomax)  
+[Francesca](github.com/frannyfra)  
+[Christine](github.com/xIrusux)  
 
 ## Aim 
 
@@ -12,7 +12,7 @@ Our aim was to build a simple web app (ideally just a single page). It must quer
 
 ## User Journey
 
-A young family expecting a baby is looking for a house to buy in a safe area. 
+A young family expecting a baby is looking for a house to buy in a safe area. **[Leoni](https://github.com/laleonie) :eyes: You were our inspiration! :heart:**
 
 They have an idea about where they want to live but would like to know local crime rates and house prices.
 
