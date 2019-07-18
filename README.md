@@ -44,7 +44,7 @@ A young family expecting a baby is looking for a place in a safe area, and would
 7. Transform requirements into github issues (more granular if needed)
 
 ## App Architecture
- A user inputs their postcode into an input field. This must be a valid postcode which is checked against the governement's regez/postcode validator. Once the postcode passes the validation check, an API call is triggered to the Postcode & Geolocation API. This then returns the longitude and latitude data back. 
+ A user inputs their postcode into an input field. This must be a valid postcode which is checked against the governement's regex/postcode validator. Once the postcode passes the validation check, an API call is triggered to the Postcode & Geolocation API. This then returns the longitude and latitude data back. 
 
 If the call has been successfull, we call the POLICE! :smile:   
 ![gif of call](https://media.giphy.com/media/qivpB3X5IU5yg/giphy.gif)
