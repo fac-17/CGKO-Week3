@@ -1,27 +1,3 @@
-// / Police API
-
-var xhr = new XMLHttpRequest();
-var lat = 52.629729;
-var lng = -1.131592;
-var date = "2017-06";
-var URL = `https://data.police.uk/api/crimes-at-location?date=${date}&lat=${lat}&lng=${lng}`;
-
-xhr.onreadystatechange = function() {
-  if (xhr.readyState === 4 && xhr.status === 200) {
-    var policeObj = JSON.parse(xhr.responseText);
-    console.log(policeObj);
-  }
-};
-xhr.open("GET", URL, true);
-xhr.send();
-
-// let search = document.querySelector("#searchbutton");
-// search.addEventListener("click", query);
-
-// function query() {
-
-
-
 let search = document.querySelector("#searchbutton");
 search.addEventListener("click", query);
 
@@ -32,33 +8,44 @@ function query() {
 
   xhr.onreadystatechange = function() {
     if (xhr.readyState == 4 && xhr.status == 200) {
-      let response = JSON.parse(xhr.responseText);
-      let lat = response.result.latitude;
-      let long = response.result.longitude;
-      let loc = lat + long
+      var response = JSON.parse(xhr.responseText);
+      var lat = response.result.latitude;
+      var long = response.result.longitude;
+      policeAPI(lat,long);
     }
   };
   xhr.open("GET", urlLocation, true);
   xhr.send();
-  console.log(loc)
 }
 
-// let search = document.querySelector("#searchbutton");
-// search.addEventListener("click", query);
+// / Police API
 
-let policeQuery = function() {
+let policeAPI = function(la, lo) {
+var xhr = new XMLHttpRequest();
+var URL = `https://data.police.uk/api/crimes-at-location?date=2019-06&lat=${la}&lng=${lo}`;
 
-let xhr = new XMLHttpRequest();
-    let url = "https://data.police.uk/api/crimes-at-location?date=2017-02&lat=52.629729&lng=-1.131592";
+xhr.onreadystatechange = function() {
+  if (xhr.readyState === 4 && xhr.status === 200) {
+    var policeObj = JSON.parse(xhr.responseText);
+    
+    console.log(policeObj);
 
-    xhr.onreadystatechange = function() {
-     if(xhr.readyState == 4 && xhr.status == 200) {
-         let response = JSON.parse(xhr.responseText);
-         let numCrimes = response.length;
-         alert(numCrimes);
-     }
- };
- xhr.open("GET", url, true);
- xhr.send();
+    let totalCrimes = policeObj.length;
+    let catCrimes = policeObj
+  }
+};
+xhr.open("GET", URL, true);
+xhr.send();
 }
+
+
+
+
+
+
+
+
+
+
+
 
