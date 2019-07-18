@@ -12,7 +12,7 @@ Our aim was to build a simple web app (ideally just a single page). It must quer
 
 ## User Journey
 
-A young family expecting a baby is looking for a house to buy in a safe area. **[Leoni](https://github.com/laleonie) :eyes: You were our inspiration! :heart:**
+A young family expecting a baby is looking for a house to buy in a safe area. **[Leonie](https://github.com/laleonie) :eyes: You were our inspiration! :heart:**
 
 They have an idea about where they want to live but would like to know local crime rates and house prices.
 
