@@ -1,4 +1,4 @@
-# [Crime checker](https://fac-17.github.io/CGKO-Week3/)
+# [Crime checker](https://fac-17.github.io/CGKO-Week3/) :oncoming_police_car:
 
 Team: 
 [Gigi](github.com/gminova)
