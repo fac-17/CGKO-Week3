@@ -9,6 +9,35 @@ function removeSpaces(postcode) {
   return postcode.replace(/\s/g, "");
 }
 
+//Function which filters categories by number of crimes
+
+function categoriesIterator (policeObj) {
+  let uniquCats = [];
+  for (let i = 0; i < policeObj.length; i++) {
+    if (!(uniquCats.includes(policeObj[i].category))) {
+      uniquCats.push(policeObj[i].category);
+    }
+  }
+
+  let numByCat = [];
+  for (let i = 0; i < uniquCats.length; i++) {
+    let count = 0;
+    for (let j = 0; j < policeObj.length; j++) {
+      if (uniquCats[i] === policeObj[j].category) {
+        count++;
+      }
+    }
+    numByCat.push(count);
+    count = 0;
+  }
+
+  let objByCat = {};
+  for(let i = 0; i < uniquCats.length; i++) {
+    objByCat[uniquCats[i]] = numByCat[i];
+  }
+  return objByCat;
+};
+
 let results = document.querySelector(".result");
 
 let search = document.querySelector("#searchbutton");
@@ -46,13 +75,24 @@ let policeAPI = function(la, lo) {
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4 && xhr.status === 200) {
       var policeObj = JSON.parse(xhr.responseText);
-      console.log(policeObj);
+      
       let totalCrimes = policeObj.length;
 
       let resultsSection = document.createElement("span");
       results.appendChild(resultsSection);
       let crimeNum = document.querySelector(".numberOfCrimes");
       crimeNum.textContent = `Number of crimes: ${totalCrimes}`;
+
+      let categories = Object.keys(categoriesIterator(policeObj));
+      let numbers = Object.values(categoriesIterator(policeObj));
+
+      for(let i = 0; i < categories.length; i++){
+       let newLine = document.createElement("p");
+       let article = document.getElementById("container");
+       article.appendChild(newLine);
+       newLine.textContent = `${categories[i]}: ${numbers[i]}`;
+      }
+      //POPULATE WITH CATEGORIES WITH COUNT OF CRIMES
     }
   };
   xhr.open("GET", URL, true);
