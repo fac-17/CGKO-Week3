@@ -90,6 +90,8 @@ let policeAPI = function(la, lo) {
        let newLine = document.createElement("p");
        let article = document.getElementById("container");
        article.appendChild(newLine);
+       newLine.setAttribute("class", "children");
+
        newLine.textContent = `${categories[i]}: ${numbers[i]}`;
       }
       //POPULATE WITH CATEGORIES WITH COUNT OF CRIMES
