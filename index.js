@@ -1,4 +1,4 @@
-// Police API request
+// Police API
 
 var xhr = new XMLHttpRequest();
 var lat = 52.629729;
