@@ -22,7 +22,7 @@ function query() {
 
 let policeAPI = function(la, lo) {
 var xhr = new XMLHttpRequest();
-var URL = `https://data.police.uk/api/crimes-at-location?date=2019-06&lat=${la}&lng=${lo}`;
+var URL = `https://data.police.uk/api/crimes-at-location?date=2019-01&lat=${la}&lng=${lo}`;
 
 xhr.onreadystatechange = function() {
   if (xhr.readyState === 4 && xhr.status === 200) {
