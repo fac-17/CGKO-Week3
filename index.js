@@ -89,6 +89,16 @@ let search = document.querySelector("#searchbutton");
 search.addEventListener("click", query);
 
 function query() {
+  
+  let e = document.querySelector("ul"); 
+        e.innerHTML = "";
+
+  let crimeList = document.querySelector(".categoriesOfCrimes");
+  let i = crimeList.length;
+  while(crimeList >= i) {
+    crimeList.removeChild(crimeList.childNodes[i]);
+      i--;
+  };
   let postcode = document.querySelector("#searchfield").value;
 
   if (postcodeValidator(postcode)) {
@@ -130,10 +140,10 @@ let policeAPI = function(la, lo, selectedMonth) {
       let numbers = Object.values(categoriesIterator(policeObj));
 
       for(let i = 0; i < categories.length; i++){
-       let newLine = document.createElement("p");
-       let article = document.getElementById("container");
-       article.appendChild(newLine);
-       newLine.setAttribute("class", "children");
+       let newLine = document.createElement("li");
+       let parentCrimes = document.querySelector(".categoriesOfCrimes");
+       parentCrimes.appendChild(newLine);
+       newLine.setAttribute("class", "crimes");
 
        newLine.textContent = `${categories[i]}: ${numbers[i]}`;
       }
