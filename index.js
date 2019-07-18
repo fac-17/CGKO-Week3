@@ -1,3 +1,51 @@
+var selectedMonth = "";
+
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function dropDown() {
+  document.getElementById("dropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches(".dropbtn")) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains("show")) {
+        openDropdown.classList.remove("show");
+      }
+    }
+  }
+};
+
+// Select specific month and save in global var
+
+var jan = document.querySelector(".jan");
+var feb = document.querySelector(".feb");
+var march = document.querySelector(".march");
+jan.addEventListener("click", selectMonth);
+feb.addEventListener("click", selectMonth);
+march.addEventListener("click", selectMonth);
+
+function selectMonth() {
+  selectedMonth = event.target.classList[0];
+  if (selectedMonth === "jan") {
+    selectedMonth = "2019-01";
+    console.log(selectedMonth);
+    return selectedMonth;
+  } else if (selectedMonth === "feb") {
+    selectedMonth = "2019-02";
+    console.log(selectedMonth);
+    return selectedMonth;
+  } else if (selectedMonth === "march") {
+    selectedMonth = "2019-03";
+    console.log(selectedMonth);
+    return selectedMonth;
+  }
+}
+
 //Validation function
 function postcodeValidator(postcode) {
   postcode = this.removeSpaces(postcode);
@@ -27,7 +75,8 @@ function query() {
         var response = JSON.parse(xhr.responseText);
         var lat = response.result.latitude;
         var long = response.result.longitude;
-        policeAPI(lat, long);
+        policeAPI(lat, long, selectedMonth);
+        selectMonth = "";
       }
     };
     xhr.open("GET", urlLocation, true);
@@ -36,17 +85,16 @@ function query() {
     alert("Please, enter a valid postcode, e.g. SW1A 1AA");
   }
 }
-
 // / Police API
 
-let policeAPI = function(la, lo) {
+let policeAPI = function(la, lo, selectedMonth) {
+  let date = selectedMonth || "2019-01";
   var xhr = new XMLHttpRequest();
-  var URL = `https://data.police.uk/api/crimes-at-location?date=2019-01&lat=${la}&lng=${lo}`;
+  var URL = `https://data.police.uk/api/crimes-at-location?date=${date}&lat=${la}&lng=${lo}`;
 
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4 && xhr.status === 200) {
       var policeObj = JSON.parse(xhr.responseText);
-      console.log(policeObj);
       let totalCrimes = policeObj.length;
 
       let resultsSection = document.createElement("span");
