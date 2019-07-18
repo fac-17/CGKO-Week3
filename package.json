@@ -1,8 +1,8 @@
 {
   "name": "cgko-week3",
   "version": "1.0.0",
-  "description": "Zoopla and Police API Project",
-  "main": "app.js",
+  "description": "Police API Project",
+  "main": "index.js",
   "scripts": {
     "test": "node tests.js | tap-spec"
   },
@@ -11,7 +11,6 @@
     "url": "git+https://github.com/fac-17/CGKO-Week3.git"
   },
   "keywords": [
-    "zoopla",
     "police",
     "api"
   ],

@@ -1,31 +1,37 @@
-const env = require("env2")("./env.json");
+// let search = document.querySelector("#searchbutton");
+// search.addEventListener("click", query);
 
-console.log(process.env.DB_KEY);
+// function query() {
 
-    function query() {
+// let xhr = new XMLHttpRequest();
+//     let url = "https://data.police.uk/api/crimes-street/all-crime?poly=52.268,0.543:52.794,0.238:52.130,0.478";
 
-    let search = document.getElementById("searchbutton");
-    search.addEventListener("click", query);
-    let xhr = new XMLHttpRequest();
-    let keyword = document.getElementById("searchfield").value;
+//     xhr.onreadystatechange = function() {
+//      if(xhr.readyState == 4 && xhr.status == 200) {
+//          let response = JSON.parse(xhr.responseText);
+//          let numCrimes = response.length;
+//          alert(numCrimes);
+//      }
+//  };
+//  xhr.open("GET", url, true);
+//  xhr.send();
+// }
 
-        let regex = keyword.trim();
-        keyword = regex.replace(/ /g, "+");
+let search = document.querySelector("#searchbutton");
+search.addEventListener("click", query);
 
+function query() {
+  let xhr = new XMLHttpRequest();
+  let postcode = document.querySelector("#searchfield").value;
+  let urlLocation = `https://api.postcodes.io/postcodes/${postcode}`;
 
-    let apiKey = process.env.DB_KEY;
-    let url = `https://api.giphy.com/v1/gifs/search?q=${keyword}&api_key=${DB_KEY}`;
-
-    xhr.onreadystatechange = function() {
-     if(xhr.readyState == 4 && xhr.status == 200) {
-         let response = JSON.parse(xhr.responseText);
-        console.log(response);
-         let result = document.createElement("span");
-         let form = document.querySelector(".search");
-         form.appendChild(result);
-         result.textContent = response;
-     }
- };
- xhr.open("GET", url, true);
- xhr.send();
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      let response = JSON.parse(xhr.responseText);
+      let lat = response.result.latitude;
+      let long = response.result.longitude;
+    }
+  };
+  xhr.open("GET", urlLocation, true);
+  xhr.send();
 }
