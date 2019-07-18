@@ -46,7 +46,7 @@ A young family expecting a baby is looking for a place in a safe area, and would
 ## App Architecture
  A user inputs their postcode into an input field. This must be a valid postcode which is checked against the governement's regez/postcode validator. Once the postcode passes the validation check, an API call is triggered to the Postcode & Geolocation API. This then returns the longitude and latitude data back. 
 
-If the call has been successfull  
+If the call has been successfull, we call the POLICE! :smile:   
 ![gif of call](https://media.giphy.com/media/qivpB3X5IU5yg/giphy.gif)
 
 The result of the Geolocation API triggers a callback call to the Police UK API with the exact coordinates (as the Police API does not support postcodes), which in itself returns data about reported crimes for a specific month of the year. Through a number of tested function, we extract the crimes by category and display their count to the user to help them make an informed decision before bying a house in that area.
