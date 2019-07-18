@@ -1,3 +1,37 @@
-const env = require("env2")("./env.json");
+// let search = document.querySelector("#searchbutton");
+// search.addEventListener("click", query);
 
-console.log(process.env.API_KEY);
+// function query() {
+
+// let xhr = new XMLHttpRequest();
+//     let url = "https://data.police.uk/api/crimes-street/all-crime?poly=52.268,0.543:52.794,0.238:52.130,0.478";
+
+//     xhr.onreadystatechange = function() {
+//      if(xhr.readyState == 4 && xhr.status == 200) {
+//          let response = JSON.parse(xhr.responseText);
+//          let numCrimes = response.length;
+//          alert(numCrimes);
+//      }
+//  };
+//  xhr.open("GET", url, true);
+//  xhr.send();
+// }
+
+let search = document.querySelector("#searchbutton");
+search.addEventListener("click", query);
+
+function query() {
+  let xhr = new XMLHttpRequest();
+  let postcode = document.querySelector("#searchfield").value;
+  let urlLocation = `https://api.postcodes.io/postcodes/${postcode}`;
+
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      let response = JSON.parse(xhr.responseText);
+      let lat = response.result.latitude;
+      let long = response.result.longitude;
+    }
+  };
+  xhr.open("GET", urlLocation, true);
+  xhr.send();
+}
