@@ -88,6 +88,20 @@ POLICE UK - https://data.police.uk/docs/
 
 Postcode & Geolocation API for the UK - http://postcodes.io/
 
+```javascript
+{
+"geolocations" : [{
+"longitude":  0.629834723775309,
+"latitude": 51.7923246977375
+}, {
+"longitude": -2.49690382054704,
+"latitude": 53.5351312861402,
+"radius": 1000,
+"limit": 5
+}]
+}
+```
+
 
 
 
