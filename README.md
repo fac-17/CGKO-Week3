@@ -12,15 +12,13 @@ Our aim was to build a simple web app (ideally just a single page). It must quer
 
 ## User Journey
 
-Young family expecting a baby and they are looking for a place in a safe area. 
+A young family expecting a baby and they are looking for a place in a safe area. 
 
 They have an idea about where they want to live but they would like to know local crime rates and house prices.
 
-//
-
 > After the issues with our first API choice we had to change the user story slightly:
 
-Young family expecting a baby and they are looking for a place in a safe area, if there are crimes reported recently and of what category.
+A young family expecting a baby is looking for a place in a safe area, and would like to know about the number of recent crimes by category.
 
 ## "Code of conduct" - (How we agreed to work together in this team)
 
@@ -72,8 +70,9 @@ Postcode & Geolocation API for the UK - http://postcodes.io/
 }
 ```
 
-APIs we looked into but disappointed us:
-Zoopla appears abandoned, whereas Geocode was expensive.  
+## APIs we looked into but truly disappointed us:
+Zoopla appears to have been abandoned, while leaving all documentation and endpoints active.
+Geocode was offering a free trial but the pitifall is that it asks for your credit card and can actually become expensive.  
 ![sad face](https://media.giphy.com/media/J9h3vpYVuUi52/giphy.gif)
 
 
