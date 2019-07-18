@@ -96,9 +96,6 @@ let policeAPI = function(la, lo, selectedMonth) {
     if (xhr.readyState === 4 && xhr.status === 200) {
       var policeObj = JSON.parse(xhr.responseText);
       let totalCrimes = policeObj.length;
-
-      let resultsSection = document.createElement("span");
-      results.appendChild(resultsSection);
       let crimeNum = document.querySelector(".numberOfCrimes");
       crimeNum.textContent = `Number of crimes: ${totalCrimes}`;
     }

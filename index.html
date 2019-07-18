@@ -7,36 +7,42 @@
     <meta name="description" content="App using Zoopla and Police UK APIs" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <header>
-    <h1>Rent-Safely!</h1>
+    <h1 class="title">How safe is your area?</h1>
   </header>
 
   <body>
-    <input
-      class="search-field"
-      id="searchfield"
-      placeholder="Enter your Postcode"
-      required
-    />
+    <section class="outer-container">
+      <section class="input-container">
+        <input
+          class="search-field"
+          id="searchfield"
+          placeholder="Enter your Postcode"
+          required
+        />
+        <div class="dropdown">
+          <button onclick="dropDown()" class="dropbtn">Month selector</button>
+          <div id="dropdown" class="dropdown-content">
+            <a href="#" class="jan">January 19</a>
+            <a href="#" class="feb">Feburary 19</a>
+            <a href="#" class="march">March 19</a>
+          </div>
+        </div>
+        <button class="search-button" id="searchbutton">Search</button>
+      </section>
 
-    <div class="dropdown">
-      <button onclick="dropDown()" class="dropbtn">Dropdown</button>
-      <div id="dropdown" class="dropdown-content">
-        <a href="#" class="jan">January 19</a>
-        <a href="#" class="feb">Feburary 19</a>
-        <a href="#" class="march">March 19</a>
-      </div>
-    </div>
-
-    <button class="search-button" id="searchbutton">Search</button>
-
-    <section class="result">
-      <article>
-        <h1>Your Results</h1>
-        <p class="numberOfCrimes">Number of crimes:</p>
-        <p class="categoriesOfCrimes">Categories of crimes in your area:</p>
-      </article>
+      <section class="result-container">
+        <article>
+          <h1>Your Results:</h1>
+          <p class="numberOfCrimes">Number of crimes:</p>
+          <p class="categoriesOfCrimes">Categories of crimes in your area:</p>
+        </article>
+      </section>
     </section>
 
     <script src="index.js"></script>
