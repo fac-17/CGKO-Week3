@@ -76,6 +76,7 @@ function query() {
         var lat = response.result.latitude;
         var long = response.result.longitude;
         policeAPI(lat, long, selectedMonth);
+        selectMonth = "";
       }
     };
     xhr.open("GET", urlLocation, true);
@@ -84,7 +85,6 @@ function query() {
     alert("Please, enter a valid postcode, e.g. SW1A 1AA");
   }
 }
-
 // / Police API
 
 let policeAPI = function(la, lo, selectedMonth) {
