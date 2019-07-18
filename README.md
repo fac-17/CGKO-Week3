@@ -1,5 +1,7 @@
 ## API week project
 
+# Aim 
+
 Your project this week is to build a simple web app (ideally just a single page). You must query at least two APIs and use the results to update the DOM.
 
 What you choose to build and how you choose to display the data is entirely up to you!
@@ -12,35 +14,69 @@ During the planning phase we suggest you spend time on:
 
 You'll have most of day 3 and all of day 4 to work on your project. On day 5 we'll have code reviews in the morning and final presentations in the afternoon.
 
-### Choosing your APIs
+### "Code of conduct"
+#### (How we agreed to work together in this team)
 
-See our list of recommended APIs [here](./recommended-apis.md).
+1. Use 20/20/20 - if a pair has not found an answer after 20 min we can open the problem up to the team and do a mob
+2. Esure everyone pairs up with everyone at least once
+3. Have meetings after every milestone
+4. Conglomerate all tasks in our HackMD
+5. Create a sketch of the infrastructure 
+6. We agreed that working on the user journey is the most central piece of the project
+7. Transfer Requirements into Issues
+8. We agreed to follow BEM for classs naming (usefull link here https://css-tricks.com/bem-101/)
+9. We will create our app with the mobile first approach in mind
+10. We will create a new branch for every new feature / piece of code
+11. We will not use capitals in branch names and include either "feature/" or "fix/"
 
-You can choose to use other APIs if you prefer, but make sure to do your research and check that what you want to do with the API is possible before you start to code.
+#### "Pre-work"
+1. Look through API list https://github.com/foundersandcoders/master-reference/blob/master/coursebook/week-3/recommended-apis.md and pick the ones you like the most - how could they work together?
+2. Keep the "Things to check before you start:" - section in mind in case you have found an API that is not listed (ensure your research is halfway thorough)
 
-#### Things to check before you start:
+#### Planning
+1. Ensure common understanding of the "Things to check before you start" section - eg. CORS, oAuth, ENV2
+2. Brainstorm API's and how they could work together / go through everyones Idea
+3. Agree on final userstory (define MVP)
+4. Outline/sketch app architecture (define MVP)
+5. Create basic mock up design (define MVP)
+6. Create list of requirements
+7. Transform requirements into github issues (more granular if needed)
 
-- Are there issues with CORS requests?
-- Is there a high enough rate limit?
-- Is a free API key available?
-- Are you able to use the API without user authentication (oAuth)?
-- Is good documentation available?
+### User Story
 
-### Requirements
+Young family expecting a baby and they are looking for a place in a safe area. 
 
-- Your app queries at least two APIs using the XMLHttpRequest method
-- Your app features some dynamic content
-- A clearly defined user journey, documented in your readme.
-- A well-considered architecture for your app - think back to the workshops from the beginning of this week. Try to modularise your code, or break it down into separate files. Document any key decisions about how you structure your code in your readme!
-- Code: break your JavaScript down into small functions with a clear input and output; this will make it easy to write tests
-- Tests: write tests for your pure functions. We don't expect tests on the DOM or on the response from an API.
-- Design: aim for a responsive, mobile-first design
-- Accessibility: same as always, we'll be running your code through accessibility checkers
-- Take appropriate measures when it comes to [concealing private information](https://gist.github.com/derzorngottes/3b57edc1f996dddcab25) (i.e. your API key!)
+They have an idea about where they want to live but they would love to check how safe is the area. They want want to know both whether they can afford the area and how safe it is.  
 
-### Keep in mind
+//
 
-- If using a private API key, you won't be able to deploy to GitHub pages this week (if you're not using an API key, go for it!)
-- Try and do a little bit of TDD in pairs
-- Don't repeat yourself! Try to reuse and refactor bits of existing code where possible.
-- Minimise DOM manipulation to keep your app efficient
+> After the issues with our first API choice we had to change the user story slightly:
+
+Young family expecting a baby and they are looking for a place in a safe area. 
+
+They have an idea about where they want to live but they would love to check how safe is the area. They only want to know how safe the area is.
+
+
+...
+
+
+### App Architecture
+
+Zed-index to inform outcode(the first part of a UK postcode, short for “outward code”) to latitude and longitude conversion;
+
+
+
+
+...
+### APIs 
+POLICE UK - https://data.police.uk/docs/
+
+Postcode & Geolocation API for the UK - http://postcodes.io/
+
+
+
+
+~~ZOOPLA~~ - https://developer.zoopla.co.uk/docs/
+
+~~GEOCODE~~ - https://geocode.xyz/api
+
