@@ -12,11 +12,11 @@ Our aim was to build a simple web app (ideally just a single page). It must quer
 
 ## User Journey
 
-A young family expecting a baby and they are looking for a place in a safe area. 
+A young family expecting a baby islooking for a house to buy in a safe area. 
 
-They have an idea about where they want to live but they would like to know local crime rates and house prices.
+They have an idea about where they want to live but would like to know local crime rates and house prices.
 
-> After the issues with our first API choice we had to change the user story slightly:
+> After major issues with the Zoopla API we had to adjust the user story slightly:
 
 A young family expecting a baby is looking for a place in a safe area, and would like to know about the number of recent crimes by category.
 
