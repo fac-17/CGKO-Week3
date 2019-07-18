@@ -1,7 +1,11 @@
 ## API week project
 
 Team: 
-[gigi](github.com/gminova)
+[Gigi](github.com/gminova)
+[Tony](github.com/tonylomax)
+[Francesca](github.com/frannyfra)
+[Christine](github.com/xIrusux)
+
 
 
 # Aim 
