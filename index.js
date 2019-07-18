@@ -1,3 +1,5 @@
+let results = document.querySelector(".result");
+
 let search = document.querySelector("#searchbutton");
 search.addEventListener("click", query);
 
@@ -11,7 +13,7 @@ function query() {
       var response = JSON.parse(xhr.responseText);
       var lat = response.result.latitude;
       var long = response.result.longitude;
-      policeAPI(lat,long);
+      policeAPI(lat, long);
     }
   };
   xhr.open("GET", urlLocation, true);
@@ -21,31 +23,21 @@ function query() {
 // / Police API
 
 let policeAPI = function(la, lo) {
-var xhr = new XMLHttpRequest();
-var URL = `https://data.police.uk/api/crimes-at-location?date=2019-01&lat=${la}&lng=${lo}`;
+  var xhr = new XMLHttpRequest();
+  var URL = `https://data.police.uk/api/crimes-at-location?date=2019-01&lat=${la}&lng=${lo}`;
 
-xhr.onreadystatechange = function() {
-  if (xhr.readyState === 4 && xhr.status === 200) {
-    var policeObj = JSON.parse(xhr.responseText);
-    
-    console.log(policeObj);
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      var policeObj = JSON.parse(xhr.responseText);
+      console.log(policeObj);
+      let totalCrimes = policeObj.length;
 
-    let totalCrimes = policeObj.length;
-    let catCrimes = policeObj
-  }
+      let resultsSection = document.createElement("span");
+      results.appendChild(resultsSection);
+      let crimeNum = document.querySelector(".numberOfCrimes");
+      crimeNum.textContent += ` ${totalCrimes}`;
+    }
+  };
+  xhr.open("GET", URL, true);
+  xhr.send();
 };
-xhr.open("GET", URL, true);
-xhr.send();
-}
-
-
-
-
-
-
-
-
-
-
-
-
