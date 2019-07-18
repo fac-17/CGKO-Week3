@@ -1,5 +1,9 @@
 ## API week project
 
+Team: 
+[gigi](github.com/gminova)
+
+
 # Aim 
 
 Your project this week is to build a simple web app (ideally just a single page). You must query at least two APIs and use the results to update the DOM.
