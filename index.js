@@ -33,15 +33,12 @@ function selectMonth() {
   selectedMonth = event.target.classList[0];
   if (selectedMonth === "jan") {
     selectedMonth = "2019-01";
-    console.log(selectedMonth);
     return selectedMonth;
   } else if (selectedMonth === "feb") {
     selectedMonth = "2019-02";
-    console.log(selectedMonth);
     return selectedMonth;
   } else if (selectedMonth === "march") {
     selectedMonth = "2019-03";
-    console.log(selectedMonth);
     return selectedMonth;
   }
 }
