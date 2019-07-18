@@ -12,7 +12,7 @@ Our aim was to build a simple web app (ideally just a single page). It must quer
 
 ## User Journey
 
-A young family expecting a baby islooking for a house to buy in a safe area. 
+A young family expecting a baby is looking for a house to buy in a safe area. 
 
 They have an idea about where they want to live but would like to know local crime rates and house prices.
 
