@@ -92,13 +92,7 @@ function query() {
   
   let e = document.querySelector("ul"); 
         e.innerHTML = "";
-
-  let crimeList = document.querySelector(".categoriesOfCrimes");
-  let i = crimeList.length;
-  while(crimeList >= i) {
-    crimeList.removeChild(crimeList.childNodes[i]);
-      i--;
-  };
+        
   let postcode = document.querySelector("#searchfield").value;
 
   if (postcodeValidator(postcode)) {
