@@ -102,7 +102,8 @@ Postcode & Geolocation API for the UK - http://postcodes.io/
 }
 ```
 
-
+APIs we looked into but disappointed us:
+Zoopla appears abandoned, whereas Geocode was expensive.  
 
 
 ~~ZOOPLA~~ - https://developer.zoopla.co.uk/docs/
