@@ -14,6 +14,13 @@ During the planning phase we suggest you spend time on:
 
 You'll have most of day 3 and all of day 4 to work on your project. On day 5 we'll have code reviews in the morning and final presentations in the afternoon.
 
+# Install
+
+1. Clone the repo
+2. npm install
+3. Launch! 
+n.b. no keys required, both API's are opensource/keyless
+
 ### "Code of conduct"
 #### (How we agreed to work together in this team)
 
