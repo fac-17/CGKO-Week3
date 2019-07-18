@@ -1,4 +1,4 @@
-## API week project
+# [Crime checker](https://fac-17.github.io/CGKO-Week3/)
 
 Team: 
 [Gigi](github.com/gminova)
@@ -6,31 +6,23 @@ Team:
 [Francesca](github.com/frannyfra)
 [Christine](github.com/xIrusux)
 
+## Aim 
 
+Our aim was to build a simple web app (ideally just a single page). It must query at least two APIs and use the results to update the DOM.
 
-# Aim 
+## User Journey
 
-Your project this week is to build a simple web app (ideally just a single page). You must query at least two APIs and use the results to update the DOM.
+Young family expecting a baby and they are looking for a place in a safe area. 
 
-What you choose to build and how you choose to display the data is entirely up to you!
+They have an idea about where they want to live but they would like to know local crime rates and house prices.
 
-During the planning phase we suggest you spend time on:
+//
 
-- Exploring APIs you are interested in working with
-- Considering your user journey
-- Deciding what you need to build for your Minimum Viable Product (MVP) and splitting up the tasks
+> After the issues with our first API choice we had to change the user story slightly:
 
-You'll have most of day 3 and all of day 4 to work on your project. On day 5 we'll have code reviews in the morning and final presentations in the afternoon.
+Young family expecting a baby and they are looking for a place in a safe area, if there are crimes reported recently and of what category.
 
-# Install
-
-1. Clone the repo
-2. npm install
-3. Launch! 
-n.b. no keys required, both API's are opensource/keyless
-
-### "Code of conduct"
-#### (How we agreed to work together in this team)
+## "Code of conduct" - (How we agreed to work together in this team)
 
 1. Use 20/20/20 - if a pair has not found an answer after 20 min we can open the problem up to the team and do a mob
 2. Esure everyone pairs up with everyone at least once
@@ -44,11 +36,7 @@ n.b. no keys required, both API's are opensource/keyless
 10. We will create a new branch for every new feature / piece of code
 11. We will not use capitals in branch names and include either "feature/" or "fix/"
 
-#### "Pre-work"
-1. Look through API list https://github.com/foundersandcoders/master-reference/blob/master/coursebook/week-3/recommended-apis.md and pick the ones you like the most - how could they work together?
-2. Keep the "Things to check before you start:" - section in mind in case you have found an API that is not listed (ensure your research is halfway thorough)
-
-#### Planning
+## Planning
 1. Ensure common understanding of the "Things to check before you start" section - eg. CORS, oAuth, ENV2
 2. Brainstorm API's and how they could work together / go through everyones Idea
 3. Agree on final userstory (define MVP)
@@ -57,33 +45,15 @@ n.b. no keys required, both API's are opensource/keyless
 6. Create list of requirements
 7. Transform requirements into github issues (more granular if needed)
 
-### User Story
+## App Architecture
+ A user inputs their postcode into an input field. This must be a valid postcode which is checked against the governement's regez/postcode validator. Once the postcode passes the validation check, an API call is triggered to the Postcode & Geolocation API. This then returns the longitude and latitude data back. 
 
-Young family expecting a baby and they are looking for a place in a safe area. 
+If the call has been successfull  
+![gif of call](https://media.giphy.com/media/qivpB3X5IU5yg/giphy.gif)
 
-They have an idea about where they want to live but they would love to check how safe is the area. They want want to know both whether they can afford the area and how safe it is.  
+The result of the Geolocation API triggers a callback call to the Police UK API with the exact coordinates (as the Police API does not support postcodes), which in itself returns data about reported crimes for a specific month of the year. Through a number of tested function, we extract the crimes by category and display their count to the user to help them make an informed decision before bying a house in that area.
 
-//
-
-> After the issues with our first API choice we had to change the user story slightly:
-
-Young family expecting a baby and they are looking for a place in a safe area. 
-
-They have an idea about where they want to live but they would love to check how safe is the area. They only want to know how safe the area is.
-
-
-...
-
-
-### App Architecture
-
-Zed-index to inform outcode(the first part of a UK postcode, short for “outward code”) to latitude and longitude conversion;
-
-
-
-
-...
-### APIs 
+## APIs 
 POLICE UK - https://data.police.uk/docs/
 
 Postcode & Geolocation API for the UK - http://postcodes.io/
