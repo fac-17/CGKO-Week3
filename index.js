@@ -43,12 +43,6 @@ function selectMonth() {
   }
 }
 
-//Validation function
-function postcodeValidator(postcode) {
-  postcode = this.removeSpaces(postcode);
-  const pattern = /^([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([AZa-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z]))))[0-9][A-Za-z]{2})$/;
-  return pattern.test(postcode);
-}
 //Remove spaces from postcode
 function removeSpaces(postcode) {
   return postcode.replace(/\s/g, "");
@@ -92,8 +86,35 @@ function query() {
   e.innerHTML = "";
 
   let postcode = document.querySelector("#searchfield").value;
+  //API call to validate postcode
+  let valid = new XMLHttpRequest();
+  let urlValid = `https://api.postcodes.io/postcodes/${postcode}/validate`;
 
-  if (postcodeValidator(postcode)) {
+  valid.onreadystatechange = function() {
+    if (valid.readyState == 4 && valid.status == 200) {
+      var response = JSON.parse(valid.responseText);
+      if (response.result) {
+        location(postcode);
+      } else {
+        // Delay alert after old data has been cleared
+        function first() {
+          setTimeout(function() {
+            alert("Please, enter a valid postcode, e.g. SW1A 1AA");
+          }, 500);
+        }
+        function second() {
+          let numCrimes = document.querySelector(".numberOfCrimes");
+          numCrimes.textContent = "Number of crimes:";
+        }
+        first();
+        second();
+      }
+    }
+  };
+  valid.open("GET", urlValid, true);
+  valid.send();
+
+  function location(postcode) {
     postcode = removeSpaces(postcode);
     let xhr = new XMLHttpRequest();
     let urlLocation = `https://api.postcodes.io/postcodes/${postcode}`;
@@ -109,8 +130,6 @@ function query() {
     };
     xhr.open("GET", urlLocation, true);
     xhr.send();
-  } else {
-    alert("Please, enter a valid postcode, e.g. SW1A 1AA");
   }
 }
 // / Police API
