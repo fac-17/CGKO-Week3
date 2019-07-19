@@ -51,12 +51,11 @@ function removeSpaces(postcode) {
 //Function which filters categories by number of crimes
 
 function categoriesIterator(policeObj) {
-  let uniquCats = [];
-  for (let i = 0; i < policeObj.length; i++) {
-    if (!uniquCats.includes(policeObj[i].category)) {
-      uniquCats.push(policeObj[i].category);
-    }
-  }
+  let uniquCats = new Set([]);
+  policeObj.forEach(element => {
+    uniquCats.add(element.category);
+  });
+  uniquCats = Array.from(uniquCats);
 
   let numByCat = [];
   for (let i = 0; i < uniquCats.length; i++) {
@@ -89,31 +88,31 @@ function query() {
   let postcode = document.querySelector("#searchfield").value;
   //API call to validate postcode
   let valid = new XMLHttpRequest();
-    let urlValid = `https://api.postcodes.io/postcodes/${postcode}/validate`;
+  let urlValid = `https://api.postcodes.io/postcodes/${postcode}/validate`;
 
-    valid.onreadystatechange = function() {
-      if (valid.readyState == 4 && valid.status == 200) {
-        var response = JSON.parse(valid.responseText);
-        if(response.result) {
-          location(postcode);
-        }else {
-          // Delay alert after old data has been cleared
-          function first() {
-            setTimeout(function() {
-              alert("Please, enter a valid postcode, e.g. SW1A 1AA");
-            }, 500);
-          }
-          function second() {
-            let numCrimes = document.querySelector(".numberOfCrimes");
-            numCrimes.textContent = "Number of crimes:";
-          }
-          first();
-          second();
+  valid.onreadystatechange = function() {
+    if (valid.readyState == 4 && valid.status == 200) {
+      var response = JSON.parse(valid.responseText);
+      if (response.result) {
+        location(postcode);
+      } else {
+        // Delay alert after old data has been cleared
+        function first() {
+          setTimeout(function() {
+            alert("Please, enter a valid postcode, e.g. SW1A 1AA");
+          }, 500);
         }
+        function second() {
+          let numCrimes = document.querySelector(".numberOfCrimes");
+          numCrimes.textContent = "Number of crimes:";
+        }
+        first();
+        second();
       }
-    };
-    valid.open("GET", urlValid, true);
-    valid.send();
+    }
+  };
+  valid.open("GET", urlValid, true);
+  valid.send();
 
   function location(postcode) {
     postcode = removeSpaces(postcode);
@@ -131,7 +130,7 @@ function query() {
     };
     xhr.open("GET", urlLocation, true);
     xhr.send();
-  } 
+  }
 }
 // / Police API
 
