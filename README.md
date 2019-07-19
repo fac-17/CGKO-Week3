@@ -58,15 +58,17 @@ Postcode & Geolocation API for the UK - http://postcodes.io/
 
 ```javascript
 {
-"geolocations" : [{
-"longitude":  0.629834723775309,
-"latitude": 51.7923246977375
-}, {
-"longitude": -2.49690382054704,
-"latitude": 53.5351312861402,
-"radius": 1000,
-"limit": 5
-}]
+    "status": 200,
+    "result": {
+        "postcode": "SW1A 1AA",
+        "quality": 1,
+        "eastings": 529090,
+        "northings": 179645,
+        "country": "England",
+        "nhs_ha": "London",
+        "longitude": -0.141588,
+        "latitude": 51.501009,
+        .....................
 }
 ```
 
