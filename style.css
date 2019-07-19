@@ -13,27 +13,22 @@ body {
   background-color: #272727;
   color: whitesmoke;
   padding: 16px;
-  font-size: 16px;
   cursor: pointer;
   border: 1px solid black;
+  font-size: 1em;
 }
 .search-button {
   background-color: white;
   background-color: #3E8500;
   color: white;
-  margin: 10px 0 auto;
   padding: 16px;
-  font-size: 16px;
   cursor: pointer;
-  border: 1px solid black;  
+  border: 1px solid black; 
+  margin-top: 10px; 
 }
 
 .search-field {
-  font-size: 1.5rem;
-}
-
-.show {
-  display: block;
+  font-size: 1em;
 }
 
 .outer-container {
@@ -43,14 +38,12 @@ body {
 
 .input-container {
   display: flex;
-  word-break: break-all;
+  flex-direction: column;
 }
 
 .result-container {
   margin-top: 5%;
   display: flex;
-  word-break: break-all;
-  font-size: 1.5rem;
   background-color: #f7f7f7;
 }
 
@@ -58,15 +51,8 @@ label {
   padding: 10px;
 }
 
-@media only screen and (max-width: 600px) {
-  .input-container {
-    flex-direction: column;
-  }
-  .search-field {
-    border: 1px grey solid;
-    margin-bottom: 5%;
-  }
-  .title {
-    text-align: center;
+@media only screen and (min-width: 900px) {
+  body {
+    font-size: 2rem;
   }
 }
