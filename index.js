@@ -6,43 +6,6 @@ function dropDown() {
   document.getElementById("dropdown").classList.toggle("show");
 }
 
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches(".dropbtn")) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains("show")) {
-        openDropdown.classList.remove("show");
-      }
-    }
-  }
-};
-
-// Select specific month and save in global var
-
-var jan = document.querySelector(".jan");
-var feb = document.querySelector(".feb");
-var march = document.querySelector(".march");
-jan.addEventListener("click", selectMonth);
-feb.addEventListener("click", selectMonth);
-march.addEventListener("click", selectMonth);
-
-function selectMonth() {
-  selectedMonth = event.target.classList[0];
-  if (selectedMonth === "jan") {
-    selectedMonth = "2019-01";
-    return selectedMonth;
-  } else if (selectedMonth === "feb") {
-    selectedMonth = "2019-02";
-    return selectedMonth;
-  } else if (selectedMonth === "march") {
-    selectedMonth = "2019-03";
-    return selectedMonth;
-  }
-}
-
 //Remove spaces from postcode
 function removeSpaces(postcode) {
   return postcode.replace(/\s/g, "");
@@ -89,31 +52,31 @@ function query() {
   let postcode = document.querySelector("#searchfield").value;
   //API call to validate postcode
   let valid = new XMLHttpRequest();
-    let urlValid = `https://api.postcodes.io/postcodes/${postcode}/validate`;
+  let urlValid = `https://api.postcodes.io/postcodes/${postcode}/validate`;
 
-    valid.onreadystatechange = function() {
-      if (valid.readyState == 4 && valid.status == 200) {
-        var response = JSON.parse(valid.responseText);
-        if(response.result) {
-          location(postcode);
-        }else {
-          // Delay alert after old data has been cleared
-          function first() {
-            setTimeout(function() {
-              alert("Please, enter a valid postcode, e.g. SW1A 1AA");
-            }, 500);
-          }
-          function second() {
-            let numCrimes = document.querySelector(".numberOfCrimes");
-            numCrimes.textContent = "Number of crimes:";
-          }
-          first();
-          second();
+  valid.onreadystatechange = function() {
+    if (valid.readyState == 4 && valid.status == 200) {
+      var response = JSON.parse(valid.responseText);
+      if (response.result) {
+        location(postcode);
+      } else {
+        // Delay alert after old data has been cleared
+        function first() {
+          setTimeout(function() {
+            alert("Please, enter a valid postcode, e.g. SW1A 1AA");
+          }, 500);
         }
+        function second() {
+          let numCrimes = document.querySelector(".numberOfCrimes");
+          numCrimes.textContent = "Number of crimes:";
+        }
+        first();
+        second();
       }
-    };
-    valid.open("GET", urlValid, true);
-    valid.send();
+    }
+  };
+  valid.open("GET", urlValid, true);
+  valid.send();
 
   function location(postcode) {
     postcode = removeSpaces(postcode);
@@ -125,20 +88,21 @@ function query() {
         var response = JSON.parse(xhr.responseText);
         var lat = response.result.latitude;
         var long = response.result.longitude;
-        policeAPI(lat, long, selectedMonth);
-        selectMonth = "";
+
+        let month = document.querySelector("#month").value;
+        let year = document.querySelector("#year").value;
+        policeAPI(lat, long, month, year);
       }
     };
     xhr.open("GET", urlLocation, true);
     xhr.send();
-  } 
+  }
 }
 // / Police API
 
-let policeAPI = function(la, lo, selectedMonth) {
-  let date = selectedMonth || "2019-01";
+let policeAPI = function(la, lo, month, year) {
   var xhr = new XMLHttpRequest();
-  var URL = `https://data.police.uk/api/crimes-at-location?date=${date}&lat=${la}&lng=${lo}`;
+  var URL = `https://data.police.uk/api/crimes-at-location?date=${year}-${month}&lat=${la}&lng=${lo}`;
 
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4 && xhr.status === 200) {
