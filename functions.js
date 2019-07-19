@@ -1,5 +1,7 @@
+//These are for testing purpose only and are not used in the final product.
+
 const functions = {
-  test: function () {
+  test: function() {
     return "Tape is working! Hooray!";
   },
 
@@ -7,10 +9,10 @@ const functions = {
     return postcode.replace(/\s/g, "");
   },
 
-  categoriesIterator: function (policeObj) {
+  categoriesIterator: function(policeObj) {
     let uniquCats = [];
     for (let i = 0; i < policeObj.length; i++) {
-      if (!(uniquCats.includes(policeObj[i].category))) {
+      if (!uniquCats.includes(policeObj[i].category)) {
         uniquCats.push(policeObj[i].category);
       }
     }
@@ -28,16 +30,13 @@ const functions = {
     }
 
     let objByCat = {};
-    for(let i = 0; i < uniquCats.length; i++) {
+    for (let i = 0; i < uniquCats.length; i++) {
       objByCat[uniquCats[i]] = numByCat[i];
     }
     return objByCat;
   }
 };
 
-
-
-  if(typeof module !== "undefined") {
-    module.exports = functions;
+if (typeof module !== "undefined") {
+  module.exports = functions;
 }
-
