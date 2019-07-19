@@ -56,13 +56,12 @@ function removeSpaces(postcode) {
 
 //Function which filters categories by number of crimes
 
-function categoriesIterator (policeObj) {
-  let uniquCats = [];
-  for (let i = 0; i < policeObj.length; i++) {
-    if (!(uniquCats.includes(policeObj[i].category))) {
-      uniquCats.push(policeObj[i].category);
-    }
-  }
+function categoriesIterator(policeObj) {
+  let uniquCats = new Set([]);
+  policeObj.forEach(element => {
+    uniquCats.add(element.category);
+  });
+  uniquCats = Array.from(uniquCats);
 
   let numByCat = [];
   for (let i = 0; i < uniquCats.length; i++) {
@@ -77,11 +76,11 @@ function categoriesIterator (policeObj) {
   }
 
   let objByCat = {};
-  for(let i = 0; i < uniquCats.length; i++) {
+  for (let i = 0; i < uniquCats.length; i++) {
     objByCat[uniquCats[i]] = numByCat[i];
   }
   return objByCat;
-};
+}
 
 let results = document.querySelector(".result");
 
@@ -89,10 +88,9 @@ let search = document.querySelector("#searchbutton");
 search.addEventListener("click", query);
 
 function query() {
-  
-  let e = document.querySelector("ul"); 
-        e.innerHTML = "";
-        
+  let e = document.querySelector("ul");
+  e.innerHTML = "";
+
   let postcode = document.querySelector("#searchfield").value;
 
   if (postcodeValidator(postcode)) {
@@ -133,13 +131,13 @@ let policeAPI = function(la, lo, selectedMonth) {
       let categories = Object.keys(categoriesIterator(policeObj));
       let numbers = Object.values(categoriesIterator(policeObj));
 
-      for(let i = 0; i < categories.length; i++){
-       let newLine = document.createElement("li");
-       let parentCrimes = document.querySelector(".categoriesOfCrimes");
-       parentCrimes.appendChild(newLine);
-       newLine.setAttribute("class", "crimes");
+      for (let i = 0; i < categories.length; i++) {
+        let newLine = document.createElement("li");
+        let parentCrimes = document.querySelector(".categoriesOfCrimes");
+        parentCrimes.appendChild(newLine);
+        newLine.setAttribute("class", "crimes");
 
-       newLine.textContent = `${categories[i]}: ${numbers[i]}`;
+        newLine.textContent = `${categories[i]}: ${numbers[i]}`;
       }
       //POPULATE WITH CATEGORIES WITH COUNT OF CRIMES
     }
