@@ -19,14 +19,15 @@
   <body>
     <section class="outer-container">
       <section class="input-container">
-        
-        <label for="postcode">Write postcode:
-        <input
+
+        <label for="searchfield">Write postcode:</label>
+        <input type="text" name="searchfield"
           class="search-field"
           id="searchfield"
           placeholder="Enter your Postcode"
           required
-        /></label>
+        />
+
         <label for="month">Select month:</label>
           <select id="month" class="dropdown">
             <option value="01" selected>January</option>
@@ -49,6 +50,7 @@
             <option value="2018">2018</option>
             <option value="2017">2017</option>
           </select>
+
         <button class="search-button" id="searchbutton">Search</button>
       </section>
 

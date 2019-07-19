@@ -5,6 +5,7 @@ body {
   justify-content: center;
   font-family: "Roboto", sans-serif;
   background-color: whitesmoke;
+  font-size: 1.1rem;
 }
 
 .search-button,
@@ -13,9 +14,18 @@ body {
   color: whitesmoke;
   padding: 16px;
   font-size: 16px;
-  border: none;
   cursor: pointer;
   border: 1px solid black;
+}
+.search-button {
+  background-color: white;
+  background-color: #3E8500;
+  color: white;
+  margin: 10px 0 auto;
+  padding: 16px;
+  font-size: 16px;
+  cursor: pointer;
+  border: 1px solid black;  
 }
 
 .search-field {

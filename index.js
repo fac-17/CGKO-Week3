@@ -14,12 +14,11 @@ function removeSpaces(postcode) {
 //Function which filters categories by number of crimes
 
 function categoriesIterator(policeObj) {
-  let uniquCats = [];
-  for (let i = 0; i < policeObj.length; i++) {
-    if (!uniquCats.includes(policeObj[i].category)) {
-      uniquCats.push(policeObj[i].category);
-    }
-  }
+  let uniquCats = new Set([]);
+  policeObj.forEach(element => {
+    uniquCats.add(element.category);
+  });
+  uniquCats = Array.from(uniquCats);
 
   let numByCat = [];
   for (let i = 0; i < uniquCats.length; i++) {
@@ -70,6 +69,7 @@ function query() {
           let numCrimes = document.querySelector(".numberOfCrimes");
           numCrimes.textContent = "Number of crimes:";
         }
+
         first();
         second();
       }
