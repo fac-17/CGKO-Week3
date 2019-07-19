@@ -92,7 +92,7 @@ function query() {
   
   let e = document.querySelector("ul"); 
         e.innerHTML = "";
-        
+      
   let postcode = document.querySelector("#searchfield").value;
 
   if (postcodeValidator(postcode)) {
@@ -112,7 +112,18 @@ function query() {
     xhr.open("GET", urlLocation, true);
     xhr.send();
   } else {
-    alert("Please, enter a valid postcode, e.g. SW1A 1AA");
+    // Delay alert after old data has been cleared
+    function first(){
+     setTimeout( function(){
+     alert("Please, enter a valid postcode, e.g. SW1A 1AA");
+      }, 500 );
+    }
+    function second(){
+      let numCrimes = document.querySelector(".numberOfCrimes");
+      numCrimes.textContent = "Number of crimes:"; 
+    }
+    first();
+    second();
   }
 }
 // / Police API
