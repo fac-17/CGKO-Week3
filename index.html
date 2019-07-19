@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title></title>
+    <title>How safe is your area?</title>
     <meta name="description" content="App using Zoopla and Police UK APIs" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
@@ -19,12 +19,13 @@
   <body>
     <section class="outer-container">
       <section class="input-container">
-        <input
+        <input type="text" name="postcode"
           class="search-field"
           id="searchfield"
           placeholder="Enter your Postcode"
           required
         />
+
         <div class="dropdown">
           <button onclick="dropDown()" class="dropbtn">Month selector</button>
           <div id="dropdown" class="dropdown-content">
