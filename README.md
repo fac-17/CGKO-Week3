@@ -20,6 +20,9 @@ They have an idea about where they want to live but would like to know local cri
 
 A young family expecting a baby is looking for a place in a safe area, and would like to know about the number of recent crimes by category.
 
+## Screenshots
+![](https://i.imgur.com/cUqREhX.png)
+
 ## "Code of conduct" - (How we agreed to work together in this team)
 
 1. Use 20/20/20 - if a pair has not found an answer after 20 min we can open the problem up to the team and do a mob
